@@ -1,7 +1,7 @@
-import SignUpForm from "@/ui/component/signupForm";
+import SignUpForm from "@/ui/component/SignupForm";
 import LevelupLogo from "@/ui/logo";
 
-export default function SignupPage() {
+export default function Page() {
   return (
     <main className="flex">
       <div>
