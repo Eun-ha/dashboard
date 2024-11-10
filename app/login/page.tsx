@@ -1,4 +1,4 @@
-import LoginForm from "@/ui/account/LoginForm";
+import LoginForm from "@/ui/account/login-form";
 import LevelupLogo from "@/ui/logo";
 
 export default function Page() {

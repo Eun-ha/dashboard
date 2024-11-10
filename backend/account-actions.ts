@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { User } from "@/types/definitions";
 import { AuthError } from "next-auth";
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
 
 const EmailSchema = z.string().email({ message: "Invalid email address." });
 const PasswordSchema = z
@@ -85,5 +85,15 @@ export async function authenticate(
       }
     }
     throw error;
+  }
+}
+
+export async function performLogout() {
+  "use server";
+  try {
+    await signOut();
+    console.log("Successfully logged out");
+  } catch (error) {
+    console.error("Logout failed:", error);
   }
 }

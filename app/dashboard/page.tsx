@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import LogoutForm from "@/ui/account/LogoutForm";
+import LogoutForm from "@/ui/account/logout-form";
 
 export default async function Page() {
   const session = await auth();

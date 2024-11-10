@@ -1,4 +1,5 @@
-import { NextAuthConfig } from "./node_modules/next-auth/src/lib/index";
+import { NextAuthConfig } from "next-auth";
+
 export const authConfig = {
   pages: {
     signIn: "/login",
