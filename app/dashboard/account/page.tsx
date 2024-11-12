@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import { fetchLoggedInUser } from "@/backend/account-actions";
 import DeleteAccount from "@/ui/account/delete-account";
 import { Metadata } from "next";
 
@@ -10,6 +11,8 @@ export default async function Page() {
   const session = await auth();
   const email = session?.user?.email || "";
   const user = await fetchLoggedInUser(email);
+
+  console.log(user);
 
   return (
     <main>

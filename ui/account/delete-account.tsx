@@ -1,4 +1,5 @@
-import { performLogout } from "@/backend/account-actions";
+"use client";
+import { deleteUser, performLogout } from "@/backend/account-actions";
 import { useRouter } from "next/navigation";
 
 export default function DeleteAccount({ deleteEmail }) {

@@ -8,6 +8,7 @@ import { redirect } from "next/navigation";
 import { User } from "@/types/definitions";
 import { AuthError } from "next-auth";
 import { signIn, signOut } from "@/auth";
+import { unstable_noStore as noStore } from "next/cache";
 
 const EmailSchema = z.string().email({ message: "Invalid email address." });
 const PasswordSchema = z
@@ -85,6 +86,32 @@ export async function authenticate(
       }
     }
     throw error;
+  }
+}
+
+export async function deleteUser(email: string) {
+  console.info("deleteUser:", email);
+  try {
+    // 데이터베이스에서 사용자 삭제
+    await sql`DELETE FROM users WHERE email = ${email}`;
+    // 필요한 경우 캐시 무효화 및 추가 작업 수행
+
+    return { message: "Deleted User." };
+  } catch (error) {
+    console.error("Database error:", error);
+    return { message: "Database Error: Failed to Delete User." };
+  }
+}
+
+export async function fetchLoggedInUser(email: string) {
+  noStore();
+
+  try {
+    const user = await sql`SELECT * FROM users WHERE email = ${email}`;
+    return user.rows[0] as User;
+  } catch (error) {
+    console.error("Failed to fetch user:", error);
+    throw new Error("Failed to fetch user.");
   }
 }
 

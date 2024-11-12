@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { signUp } from "@/backend/account-actions";
-import { Button } from "./Button";
+import { Button } from "../component/Button";
 
 export default function SignUpForm() {
   const [name, setName] = useState("");
@@ -50,7 +50,7 @@ export default function SignUpForm() {
           <label htmlFor="password">비밀번호</label>
           <div>
             <input
-              type="text"
+              type="password"
               id="password"
               name="password"
               value={password}
@@ -61,7 +61,7 @@ export default function SignUpForm() {
           <label htmlFor="confirmPassword">비밀번호 확인</label>
           <div>
             <input
-              type="text"
+              type="password"
               id="confirmPassword"
               name="confirmPassword"
               value={confirmPassword}
