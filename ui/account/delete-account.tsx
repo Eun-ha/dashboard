@@ -2,7 +2,11 @@
 import { deleteUser, performLogout } from "@/backend/account-actions";
 import { useRouter } from "next/navigation";
 
-export default function DeleteAccount({ deleteEmail }) {
+export default function DeleteAccount({
+  deleteEmail,
+}: {
+  deleteEmail: string;
+}) {
   const router = useRouter();
 
   const handleDeleteAccount = async () => {
