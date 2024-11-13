@@ -1,7 +1,10 @@
 import { auth } from "@/auth";
 import { CreateProject } from "@/ui/projects/buttons";
+import Table from "@/ui/projects/table";
 import Search from "@/ui/search";
+import { ProjectTableSkeleton } from "@/ui/skeletons";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -35,6 +38,13 @@ export default async function Page({
         <Search placeholder="프로젝트 검색..." />
         <CreateProject />
       </div>
+      <Suspense key={query + currentPage} fallback={<ProjectTableSkeleton />}>
+        <Table
+          query={query}
+          currentPage={currentPage}
+          email={session?.user?.email}
+        />
+      </Suspense>
     </div>
   );
 }
