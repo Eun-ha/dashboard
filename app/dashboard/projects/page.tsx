@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import { CreateProject } from "@/ui/projects/buttons";
 import Search from "@/ui/search";
 import { Metadata } from "next";
 
@@ -32,6 +33,7 @@ export default async function Page({
       </div>
       <div className="flex items-center justify-between gap-2 mt-4 md:mt-8">
         <Search placeholder="프로젝트 검색..." />
+        <CreateProject />
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import clsx from "clsx";
 
-interface ButtonProps
-  extends React.BlockquoteHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
