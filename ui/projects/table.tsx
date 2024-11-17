@@ -1,3 +1,8 @@
+import {
+  AnalyticsProject,
+  UpdateProject,
+  DeleteProject,
+} from "@/ui/projects/buttons";
 import { fetchFilteredProjectsSimple } from "@/backend/project-data";
 
 export default async function ProjectsTable({
@@ -31,6 +36,13 @@ export default async function ProjectsTable({
                     </p>
                   </div>
                 </div>
+                <div className="flex items-center justify-between w-full pt-4">
+                  <div className="flex justify-end gap-2">
+                    <AnalyticsProject id={project.name} />
+                    <UpdateProject id={project.id} />
+                    <DeleteProject id={project.id} />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -61,6 +73,13 @@ export default async function ProjectsTable({
                   </td>
                   <td className="px-3 py-3 whitespace-nowrap">
                     {project.website_url}
+                  </td>
+                  <td className="py-3 pl-6 pr-3 whitespace-nowrap">
+                    <div className="flex justify-end gap-3">
+                      <AnalyticsProject id={project.name} />
+                      <UpdateProject id={project.id} />
+                      <DeleteProject id={project.id} />
+                    </div>
                   </td>
                 </tr>
               ))}

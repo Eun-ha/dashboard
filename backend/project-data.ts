@@ -32,3 +32,28 @@ export async function fetchFilteredProjectsSimple(
     throw new Error("Failed to fetch project metrics.");
   }
 }
+
+export async function fetchProjectById(id: string) {
+  noStore();
+
+  try {
+    const data = await sql<ProjectTable>`
+      SELECT
+        projects.id,
+        projects.name,
+        projects.website_url
+      FROM projects
+      WHERE projects.id = ${id};
+    `;
+
+    const project = data.rows.map((project) => ({
+      ...project,
+    }));
+
+    // console.log(project[0]);
+    return project[0];
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch invoice.");
+  }
+}
