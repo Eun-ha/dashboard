@@ -1,5 +1,6 @@
 //import Breadcrumbs from "@/ui/projects/breadcrumbs";
 import { fetchProjectById } from "@/backend/project-data";
+import Breadcrumbs from "@/ui/projects/breadcrumbs";
 import EditProjectForm from "@/ui/projects/edit-form";
 import { notFound } from "next/navigation";
 
@@ -20,6 +21,16 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <main>
+      <Breadcrumbs
+        breadcrumbs={[
+          { label: "프로젝트", href: "/dashboard/projects" },
+          {
+            label: "프로젝트 수정",
+            href: `/dashboard/projects/${id}/edit`,
+            active: true,
+          },
+        ]}
+      />
       <EditProjectForm project={project} />
     </main>
   );
