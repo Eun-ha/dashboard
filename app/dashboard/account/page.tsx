@@ -16,6 +16,9 @@ export default async function Page() {
 
   return (
     <main>
+      <div className="flex items-center justify-between w-full">
+        <h1 className={`text-2xl`}>사용자 계정</h1>
+      </div>
       <div className="p-4 rounded-md shadow bg-gray-50 md:p-6">
         <div className="flex items-center mb-6 space-x-4">
           <h1 className="text-xl font-semibold">Your Account</h1>

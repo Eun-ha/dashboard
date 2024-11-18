@@ -9,7 +9,9 @@ export default async function Page() {
   }
   return (
     <main>
-      <h2>대시보드</h2>
+      <div className="flex items-center justify-between w-full">
+        <h1 className={`text-2xl`}>대시보드</h1>
+      </div>
       <div>
         <p>이름: {session?.user?.name}</p>
       </div>
