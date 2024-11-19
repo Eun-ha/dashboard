@@ -55,7 +55,7 @@ export async function createProject(
     }
   } catch (error) {
     return {
-      message: "Database Error: Failed to Create Project.",
+      message: "Database Error 0: Failed to Create Project.",
     };
   }
 
@@ -67,7 +67,7 @@ export async function createProject(
     `;
   } catch (error) {
     return {
-      message: "Database Error: Failed to Create Project.",
+      message: "Database Error 1: Failed to Create Project.",
     };
   }
 

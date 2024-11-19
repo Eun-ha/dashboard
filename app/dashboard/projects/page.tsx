@@ -1,5 +1,7 @@
 import { auth } from "@/auth";
+import { fetchProjectsPages } from "@/backend/project-data";
 import { CreateProject } from "@/ui/projects/buttons";
+import Pagination from "@/ui/projects/pagination";
 import Table from "@/ui/projects/table";
 import Search from "@/ui/search";
 import { ProjectTableSkeleton } from "@/ui/skeletons";
@@ -24,10 +26,7 @@ export default async function Page({
     return null;
   }
 
-  console.log("로그확인");
-  console.log(searchParams);
-  console.log(query);
-  console.log(currentPage);
+  const totalPages = await fetchProjectsPages(query, session?.user?.email);
 
   return (
     <div className="w-full">
@@ -45,6 +44,9 @@ export default async function Page({
           email={session?.user?.email}
         />
       </Suspense>
+      <div className="flex justify-center w-full mt-5">
+        <Pagination totalPages={totalPages} />
+      </div>
     </div>
   );
 }

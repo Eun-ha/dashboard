@@ -57,3 +57,25 @@ export async function fetchProjectById(id: string) {
     throw new Error("Failed to fetch invoice.");
   }
 }
+
+export async function fetchProjectsPages(query: string, email: string) {
+  noStore();
+
+  try {
+    const count = await sql`SELECT COUNT(*)
+    FROM projects
+    WHERE
+      (projects.name ILIKE ${`%${query}%`} OR
+      projects.website_url ILIKE ${`%${query}%`}) AND
+      projects.user_email = ${email}
+  `;
+
+    const totalPages = Math.ceil(
+      Number(count.rows[0].count) / PROJECTS_PER_PAGE
+    );
+    return totalPages;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch total number of projects.");
+  }
+}
