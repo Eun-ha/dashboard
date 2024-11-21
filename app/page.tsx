@@ -1,4 +1,4 @@
-import { shimmer } from "@/ui/animations";
+import { shimmer } from "@/ui/projects/animations";
 import LevelupLogo from "@/ui/logo";
 import { ArrowRightIcon, UserPlusIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";

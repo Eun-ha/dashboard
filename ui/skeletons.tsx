@@ -1,4 +1,4 @@
-import { shimmer_infinite } from "@/ui/animations";
+import { shimmer_infinite } from "@/ui/projects/animations";
 
 export function VitalCardSkeleton() {
   return (
