@@ -113,8 +113,9 @@ const metricMeta: Record<string, MetricInfoType> = {
   },
 };
 
-const valueFormatter = (number: number) =>
-  `${Intl.NumberFormat("us").format(number).toString()}`;
+function valueFormatter(number: number) {
+  return `${Intl.NumberFormat("us").format(number).toString()}`;
+}
 
 export async function VitalCard({
   metric,
@@ -224,11 +225,7 @@ export async function VitalCard({
         <Text>페이지</Text>
         <Text className="text-right">{item.title}</Text>
       </Flex>
-      <BarList
-        data={processedBarData}
-        valueFormatter={valueFormatter}
-        className="mt-2"
-      />
+      <BarList data={processedBarData} className="mt-2" />
     </Card>
   );
 }
