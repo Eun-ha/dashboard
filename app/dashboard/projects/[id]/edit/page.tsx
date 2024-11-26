@@ -15,6 +15,9 @@ export default async function Page({ params }: { params: { id: string } }) {
       return; // 프로젝트가 없으면 함수를 종료합니다.
     }
   } catch (error) {
+    if (error instanceof ReferenceError) {
+      console.error(error.message);
+    }
     notFound();
     return; // 오류가 발생하면 함수를 종료합니다.
   }
