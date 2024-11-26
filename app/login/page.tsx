@@ -1,5 +1,6 @@
 import LoginForm from "@/ui/account/login-form";
 import LevelupLogo from "@/ui/logo";
+import { Suspense } from "react";
 
 export default function Page() {
   return (
@@ -8,7 +9,9 @@ export default function Page() {
         <div>
           <LevelupLogo />
         </div>
-        <LoginForm />
+        <Suspense>
+          <LoginForm />
+        </Suspense>
       </div>
     </main>
   );

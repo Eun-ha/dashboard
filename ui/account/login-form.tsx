@@ -22,10 +22,6 @@ export default function LoginForm() {
   return (
     <form action={dispatch} className="space-y-3">
       <div>
-        {signup === "success" && (
-          <div>회원가입이 정상적으로 완료되었습니다.</div>
-        )}
-
         <h1>대시보드를 이용하기 위해 로그인을 해주세요.</h1>
         <div className="w-full">
           <label htmlFor="email">이메일</label>

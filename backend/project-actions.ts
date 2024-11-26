@@ -50,8 +50,11 @@ export async function createProject(
   try {
     const existingProject =
       await sql`SELECT * FROM projects WHERE name = ${name}`;
-    if (existingProject.rowCount > 0) {
-      return { message: "Project name already exists." };
+
+    if (existingProject.rowCount !== null) {
+      if (existingProject.rowCount > 0) {
+        return { message: "Project name already exists." };
+      }
     }
   } catch (error) {
     return {
